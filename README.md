@@ -21,7 +21,7 @@ This repository contains my daily-use templates in **C++** throughout my competi
 ```bash
 git clone <your-repo-url>
 ```
-3. Use the functions directly in your code.
+2. Use the functions directly in your code.
 
 ---
 
