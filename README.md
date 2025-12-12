@@ -8,9 +8,8 @@ This repository contains my daily-use templates in **C++** throughout my competi
 
 ### Math
 
-* [Primes]() – Prime checking "for now"
-* [Divisors]() – Divisor function.
-
+* [Primes](https://github.com/Mawadda0/CP-Templates/blob/main/primes.cpp) – Prime checking "for now"
+* [Divisors](https://github.com/Mawadda0/CP-Templates/blob/main/divisors.cpp) – Divisor function.
 > - I will add more templates in the future
 
 ---
@@ -22,7 +21,7 @@ This repository contains my daily-use templates in **C++** throughout my competi
 ```bash
 git clone <your-repo-url>
 ```
-3. Use the functions directly in your code.
+2. Use the functions directly in your code.
 
 ---
 
