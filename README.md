@@ -25,7 +25,7 @@ This repository contains my daily-use templates in **C++** throughout my competi
 1. Clone the repository:
 
 ```bash
-git clone <your-repo-url>
+git clone <https://github.com/Mawadda0/CP-Templates.git>
 ```
 2. Use the functions directly in your code.
 
