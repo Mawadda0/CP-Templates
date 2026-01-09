@@ -8,8 +8,14 @@ This repository contains my daily-use templates in **C++** throughout my competi
 
 ### Math
 
-* [Primes](https://github.com/Mawadda0/CP-Templates/blob/main/primes.cpp) – Prime checking "for now"
-* [Divisors](https://github.com/Mawadda0/CP-Templates/blob/main/divisors.cpp) – Divisor function.
+* Prime checking
+* Divisors
+* GCD & LCM
+* Sieve
+* Mod inverse
+* Prime factors
+* Factorial with mod
+* Fast power & Mod power
 > - I will add more templates in the future
 
 ---
@@ -19,7 +25,7 @@ This repository contains my daily-use templates in **C++** throughout my competi
 1. Clone the repository:
 
 ```bash
-git clone <your-repo-url>
+git clone <https://github.com/Mawadda0/CP-Templates.git>
 ```
 2. Use the functions directly in your code.
 
