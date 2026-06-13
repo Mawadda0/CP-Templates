@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 using namespace std;
- 
+
 #define nl '\n'
 #define ll long long
 #define int long long
@@ -16,9 +16,8 @@ const double pi = 3.141592653589793;
 const long long INF = 1e18;
 const int MOD = 1e9 + 7;
 
- 
 // "سُبْحَانَكَ لا عِلْمَ لَنَا إِلَّا مَا عَلَّمْتَنَا إِنَّكَ أَنْتَ الْعَلِيمُ الْحَكِيمُ"
- 
+
 const int N = 2e5;
 int n, m;
 vector<pair<int, int>> gr[N];
@@ -49,7 +48,6 @@ void dijkstra(int node)
         }
     }
 }
-
 
 signed main()
 {

@@ -77,7 +77,6 @@ struct DFS
         return cnt;
     }
 
-
     vector<int> shortest_path(int src) // tree, unwighted graphs
     {
         fill(vis.begin(), vis.end(), false);
@@ -86,7 +85,6 @@ struct DFS
         dfs(src);
         return dist; // distance from src
     }
-
 
     void topo_dfs(int node)
     {

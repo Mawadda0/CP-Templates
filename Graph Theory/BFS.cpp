@@ -11,7 +11,7 @@ using namespace std;
 #define S second
 #define fixed(n) fixed << setprecision(n)
 #define ull unsigned long long
- 
+
 const double pi = 3.141592653589793;
 const long long INF = 1e18;
 const int MOD = 1e9 + 7;
@@ -30,7 +30,7 @@ vector<int> bfs_dist(const vector<vector<int>> & adj, int src)
 
     dist[src] = 0;
     q.push(src);  
-    
+
     while(!q.empty())
     {
         int u = q.front(); q.pop();
@@ -53,7 +53,7 @@ pair<vector<int>, vector<int>> bfs_parent(const vector<vector<int>> & adj, int s
     int n = sz(adj);
     vector<int> dist(n, -1), par(n, -1);
     queue<int> q;
-    
+
     dist[src] = 0;
     q.push(src);
 
@@ -122,7 +122,7 @@ vector<int> bfs01(const vector<vector<pair<int, int>>> & adj, int src)
     int n = sz(adj);
     vector<int> dist(n, INF);
     deque<int> q;
-    
+
     dist[src] = 0;
     q.push_front(src);
 
@@ -147,7 +147,7 @@ vector<int> kahn(const vector<vector<int>> & adj)
 {
     int n = sz(adj);
     vector<int> indeg(n, 0);
-    
+
     for(int u = 0; u < n; u++)
     {
         for(int v : adj[u]) indeg[v]++;
@@ -172,7 +172,7 @@ vector<int> kahn(const vector<vector<int>> & adj)
             }    
         }
     }
-    
+
     if(sz(order) != n) return {}; // cycle detected
     return order;
 }

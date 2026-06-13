@@ -16,10 +16,11 @@ const double pi = 3.141592653589793;
 const long long INF = 1e18;
 const int MOD = 1e9 + 7;
 
+// "سُبْحَانَكَ لا عِلْمَ لَنَا إِلَّا مَا عَلَّمْتَنَا إِنَّكَ أَنْتَ الْعَلِيمُ الْحَكِيمُ"
+
 const int N = 2e5 + 5;
 vector<vector<int>> adj; // holdes the nodes and their adjacency
- 
- 
+
 void graph_rep(int n, int m)
 {
     adj.assign(n + 1, {});
@@ -31,11 +32,11 @@ void graph_rep(int n, int m)
         adj[v].push_back(u);
     }
 }
- 
+
 vector<int> vis;
 vector<int> color;
 bool cycle = false;
- 
+
 void dfs(int node)
 {
     vis[node] = 1;
@@ -45,8 +46,8 @@ void dfs(int node)
     }
  
 }
- 
- 
+
+
 void dfs_tree(int u, int p)
 { // for a tree (just parent and child relationship)
     for(int v : adj[u])
@@ -55,8 +56,8 @@ void dfs_tree(int u, int p)
         dfs_tree(v, u);
     }
 }
- 
- 
+
+
 int dfsCount(int u)
 {  // count components (neighbors and neighbors of the neighbors) for a node
     vis[u] = 1;
@@ -68,7 +69,7 @@ int dfsCount(int u)
     }
     return cnt;
 }
- 
+
 bool dfs_cycle(int u)
 {
     color[u] = 1; // GRAY
@@ -83,20 +84,19 @@ bool dfs_cycle(int u)
     color[u] = 2; // BLACK
     return false;
 }
- 
+
 string grid[2001];
 bool vis2d[2001][2001];
 int di[] = {-1, 1, 0, 0, -1, 1, 1, -1};
 int dj[] = {0, 0, -1, 1, -1, 1, -1, 1};
 int rows, cols;
- 
+
 bool is_valid(int r, int c)
 {
     return (r >= 0 && r < rows && c >= 0 && c < cols && !vis2d[r][c] && grid[r][c] == '.');
 }
- 
- 
- 
+
+
 void dfs_grid(int r, int c)
 {
     vis2d[r][c] = true;
@@ -107,8 +107,8 @@ void dfs_grid(int r, int c)
         if(is_valid(nr, nc)) dfs_grid(nr, nc);
     }
 }
- 
- 
+
+
 template <int N, int M>
 struct ForwardStar
 {
@@ -118,13 +118,13 @@ struct ForwardStar
     int nxt[M];
     //int wt[M];
     int ne;
- 
+
     void init(int n)
     {
         ne = 0;
         fill(head, head + n + 1, -1); 
     }
- 
+
     // Removed the 'int w' parameter
     void addEdge(int u, int v)
     {
@@ -133,18 +133,18 @@ struct ForwardStar
         nxt[ne] = head[u];
         head[u] = ne++;
     }
- 
+
     // Removed the 'int w' parameter
     void addBiEdge(int u, int v)
     {
         addEdge(u, v);
         addEdge(v, u);
     }
- 
+
     void traverse(int u)
     {
         cout << "Neighbors of node " << u << ": ";
-        
+
         for(int e = head[u]; e != -1; e = nxt[e])
         {
             int v = to[e];
@@ -154,8 +154,8 @@ struct ForwardStar
         cout << nl;
     }
 };
- 
- 
+
+
 int dfsDepth(int u)
 {
     int maxx = 0;
@@ -194,7 +194,7 @@ vector<int> topological_sort(int n)
     reverse(topo.begin(), topo.end());
     return topo;
 }
- 
+
 signed main()
 {
     ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);

@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 using namespace std;
- 
+
 #define nl '\n'
 #define ll long long
 #define int long long
@@ -16,9 +16,9 @@ const double pi = 3.141592653589793;
 const long long INF = 1e18;
 const int MOD = 1e9 + 7;
 
-const int MAXI = 5e5 + 5;
- 
 // "سُبْحَانَكَ لا عِلْمَ لَنَا إِلَّا مَا عَلَّمْتَنَا إِنَّكَ أَنْتَ الْعَلِيمُ الْحَكِيمُ"
+
+const int MAXI = 5e5 + 5;
 
 struct DSU
 {
@@ -37,7 +37,7 @@ struct DSU
             group[i] = 1;
         }
     }
-    
+
     int find(int x)
     {
         if(parent[x] == x) return x;
@@ -57,7 +57,7 @@ struct DSU
         maxi_comp_size = max(maxi_comp_size, group[a]);
         return true;
     }
-    
+
     bool same_set(int a, int b)
     {
         return find(a) == find(b);
@@ -67,7 +67,7 @@ struct DSU
     {
         return group[find(x)];
     }
-  
+
 };
 
 vector<int> nxt; // nxt[i] = i , initialize with size n in solve
