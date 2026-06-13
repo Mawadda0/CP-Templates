@@ -94,8 +94,8 @@ struct segTree
     {
         for(int i = 0; i < tree_size; i++)
         {
-            if(i < sz(a))
             {
+            if(i < sz(a))
                 segData[tree_size + i] = Node(a[i]);
             }
         }
