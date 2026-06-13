@@ -1,0 +1,132 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define nl '\n'
+#define ll long long
+#define int long long
+#define sz(x) (int)(x.size())
+#define all(v) v.begin(), v.end()
+#define F first
+#define S second
+#define fixed(n) fixed << setprecision(n)
+#define ull unsigned long long
+
+const double pi = 3.141592653589793;
+const long long INF = 1e18;
+const int MOD = 1e9 + 7;
+
+// "سُبْحَانَكَ لا عِلْمَ لَنَا إِلَّا مَا عَلَّمْتَنَا إِنَّكَ أَنْتَ الْعَلِيمُ الْحَكِيمُ"
+
+// iterative segment tree for range queries
+struct Node
+{
+    int sum;
+
+    Node()
+    {
+        sum = 0; // القيمة الابتدائية (المحايد لعملية الجمع)
+    }
+
+    Node(int x)
+    {
+        sum = x;
+    }
+
+    void change(int x)
+    {
+        // sum += x for adding
+        sum = x; // for updating
+    }
+};
+
+struct segTree
+{
+    int tree_size;
+    vector<Node> segData;
+
+    segTree(int n)
+    {
+        tree_size = n;
+        // في الـ Iterative بنحتاج حجم 2 * n بالظبط
+        segData.assign(2 * tree_size, Node());
+    }
+
+    // دمج نودز (هنا قمت بضبطها على عملية الـ sum بناءً على متغيرات الـ Node)
+    Node merge(Node &lf, Node &ri)
+    {
+        Node res = Node();
+        res.sum = lf.sum + ri.sum; 
+        return res;
+    }
+
+    // تحديث عنصر (Point Update) - تكراري وبدون parameters إضافية
+    void set(int idx, int val)
+    {
+        int i = idx + tree_size;
+        segData[i].change(val);
+
+        // الصعود لأعلى لتحديث الـ parents
+        for (i /= 2; i > 0; i /= 2)
+        {
+            segData[i] = merge(segData[2 * i], segData[2 * i + 1]);
+        }
+    }
+
+    // الاستعلام عن فترة (Range Query) من l لـ r (الـ r غير شاملة: [l, r) )
+    int get(int l, int r)
+    {
+        Node res_left = Node();
+        Node res_right = Node();
+
+        // الانتقال التكراري من الأسفل للأعلى
+        for (l += tree_size, r += tree_size; l < r; l /= 2, r /= 2)
+        {
+            if (l & 1)
+            {
+                res_left = merge(res_left, segData[l]);
+                l++;
+            }
+            if (r & 1)
+            {
+                --r;
+                res_right = merge(segData[r], res_right);
+            }
+        }
+        return merge(res_left, res_right).sum;
+    }
+
+    // بناء الشجرة التكراري (بدل initP الـ recursive)
+    void init(vector<int> &a)
+    {
+        // وضع العناصر الأصلية في النصف الثاني من الـ vector
+        for (int i = 0; i < tree_size; i++)
+        {
+            if (i < sz(a))
+            {
+                segData[tree_size + i] = Node(a[i]);
+            }
+        }
+
+        // بناء المستويات الأعلى خطوة بخطوة للأعلى
+        for (int i = tree_size - 1; i > 0; --i)
+        {
+            segData[i] = merge(segData[2 * i], segData[2 * i + 1]);
+        }
+    }
+};
+
+signed main()
+{
+    ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
+    
+    // تجربة سريعة للتمبلت
+    vector<int> a = {1, 2, 3, 4, 5};
+    segTree st(sz(a));
+    st.init(a);
+    
+    // طباعة مجموع العناصر من index 0 إلى 3 (0, 1, 2) -> 1 + 2 + 3 = 6
+    cout << st.get(0, 3) << nl; 
+    
+    return 0;
+}
