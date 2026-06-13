@@ -20,86 +20,78 @@ const int MOD = 1e9 + 7;
 
 // "سُبْحَانَكَ لا عِلْمَ لَنَا إِلَّا مَا عَلَّمْتَنَا إِنَّكَ أَنْتَ الْعَلِيمُ الْحَكِيمُ"
 
-// Disjoint Set Union (Union-Find) data structure
-// Used for efficient connectivity queries in graphs
 struct DSU
 {
-    vector<int> parent; // parent array for union-find operations
-    
-    // Constructor: initialize DSU with n elements
+    vector<int> parent, group;
+    int comps, maxi_comp_size;
+
+
     DSU(int n)
     {
         parent.resize(n);
-        // Each element starts as its own parent (disjoint sets)
+        group.resize(n);
+        comps = n, maxi_comp_size = 1;
         for(int i = 0; i < n; i++)
         {
             parent[i] = i;
+            group[i] = 1;
         }
     }
-    
-    // Find operation with path compression
-    // Returns the representative (root) of the set containing x
+
     int find(int x)
     {
-        // If x is its own parent, it's the root
         if(parent[x] == x) return x;
-        // Recursively find root and compress path
         return parent[x] = find(parent[x]);
     }
-    
-    // Union operation: merge sets containing a and b
-    // Returns true if sets were merged, false if they were already in the same set
+
     bool unite(int a, int b)
     {
-        a = find(a); // Find root of a's set
-        b = find(b); // Find root of b's set
-        if(a == b) return false; // Already in same set
-        parent[b] = a; // Make a the parent of b
+        a = find(a);
+        b = find(b);
+        if(a == b) return false;    
+        if(group[a] < group[b]) swap(a, b);
+
+        group[a] += group[b];
+        parent[b] = a;
+        comps--;
+        maxi_comp_size = max(maxi_comp_size, group[a]);
         return true;
     }
-    
-    // Check if two elements are in the same set
+
     bool same_set(int a, int b)
     {
         return find(a) == find(b);
     }
+
+    int get_size(int x)
+    {
+        return group[find(x)];
+    }
+
 };
 
+int n, m; 
+vector<tuple<int, int, int>> edg;
 
-
-void solve()
+void kruskal()
 {
-    int n, m; 
-    cin >> n >> m; // n = number of nodes, m = number of edges
-    
-    vector<tuple<int, int, int>> edg; // Vector to store edges as (weight, u, v)
-    
-    // Read all edges from input
+    cin >> n >> m;
     for(int i = 0; i < m; i++)
     {
         int u, v, w; 
         cin >> u >> v >> w;
-        u--; // Convert to 0-based indexing
-        v--; // Convert to 0-based indexing
-        edg.push_back({w, u, v}); // Store as (weight, from, to)
+        u--;
+        v--;
+        edg.push_back({w, u, v});
     }
-    
-    // Sort edges by weight in non-decreasing order (Kruskal's algorithm step 1)
-    sort(edg.begin(), edg.end());
-    
-    DSU dsu(n); // Initialize DSU with n nodes
-    
+
+    sort(all(edg));
+    DSU dsu(n);
     int mst = 0; // Total weight of Minimum Spanning Tree
-    
-    // Process edges in sorted order (Kruskal's algorithm step 2)
-    for(auto & [w, u, v] : edg)
+        for(auto & [w, u, v] : edg)
     {
-        // If u and v are in different sets, add this edge to MST
-        if(dsu.unite(u, v)) 
-            mst += w; // Add edge weight to total MST weight
+        if(dsu.unite(u, v)) mst += w;
     }
-    
-    // total weight of the Minimum Spanning Tree
     cout << mst;
 }
 
