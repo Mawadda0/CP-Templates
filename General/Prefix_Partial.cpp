@@ -16,7 +16,6 @@ const double pi = 3.141592653589793;
 const long long INF = 1e18;
 const int MOD = 1e9 + 7;
 
- 
 // "سُبْحَانَكَ لا عِلْمَ لَنَا إِلَّا مَا عَلَّمْتَنَا إِنَّكَ أَنْتَ الْعَلِيمُ الْحَكِيمُ"
 
 void prefix_sum(int n, int q, const vector<int> & a)
@@ -133,5 +132,6 @@ vector<vector<int>> two_D_partial_sum(int n, int m, int q, vector<vector<int>> &
 
 signed main()
 {
+    ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
     return 0;
 }
