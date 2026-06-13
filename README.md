@@ -31,7 +31,7 @@ This repository contains my daily-use templates in **C++** throughout my competi
 * Kruksal
 
 ### Range Query
-
+> - with additional template files to handle different datatypes
 * Semgent Tree
 * Segment Tree with Lazy Propagation
 * Merge Sort Tree
