@@ -1,8 +1,6 @@
 #include <bits/stdc++.h>
-#include <ext/pb_ds/assoc_container.hpp>
-#include <ext/pb_ds/tree_policy.hpp>
+
 using namespace std;
-using namespace __gnu_pbds;
 
 #define nl '\n'
 #define ll long long
@@ -12,26 +10,22 @@ using namespace __gnu_pbds;
 #define all(v) v.begin(), v.end()
 #define F first
 #define S second
-#define min_count(x) order_of_key(x)
-#define num_in_pos(x) find_by_order(x)
 #define ull unsigned long long
 
-template <class T>
-using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
-template <class T>
-using ordered_multiset = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;
+const double pi = 3.141592653589793;
+const long long INF = 1e18;
+const int MOD = 1e9 + 7;
 
 // "سُبْحَانَكَ لا عِلْمَ لَنَا إِلَّا مَا عَلَّمْتَنَا إِنَّكَ أَنْتَ الْعَلِيمُ الْحَكِيمُ"
 
-// gcd(a, b) = gcd(a - b, b), if gcd(a, 0) then ans is a
 
+// gcd(a, b) = gcd(a - b, b), if gcd(a, 0) then ans is a
 ll gcd(ll a, ll b) // log(n)
 {
     if(b > a) swap(a, b);
     if(b == 0) return a;
     return gcd(a % b, b);
 } // original was gcd(a - b, b) but mod skips so much substraction like i say x / 2 in every time i implement mod
-
 
 int gcd(int a, int b) // same method, implemented by recursion
 {
@@ -52,4 +46,10 @@ ll gcd(ll a, ll b) // another implementation
 ll lcm(ll a, ll b) // lcm using gcd
 {
     return (a * b) / gcd(a, b);
+}
+
+signed main()
+{
+    ios_base::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr);
+    return 0;
 }
