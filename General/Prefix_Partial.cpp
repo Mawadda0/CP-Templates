@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-using namespace __gnu_pbds;
  
 #define nl '\n'
 #define ll long long
@@ -11,21 +10,14 @@ using namespace __gnu_pbds;
 #define F first
 #define S second
 #define fixed(n) fixed << setprecision(n)
-#define min_count(x) order_of_key(x)
-#define num_in_pos(x) find_by_order(x)
 #define ull unsigned long long
 
 const double pi = 3.141592653589793;
 const long long INF = 1e18;
 const int MOD = 1e9 + 7;
- 
-template <class T>
-using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
-template <class T>
-using ordered_multiset = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;
+
  
 // "سُبْحَانَكَ لا عِلْمَ لَنَا إِلَّا مَا عَلَّمْتَنَا إِنَّكَ أَنْتَ الْعَلِيمُ الْحَكِيمُ"
-
 
 void prefix_sum(int n, int q, const vector<int> & a)
 {
@@ -43,9 +35,6 @@ void prefix_sum(int n, int q, const vector<int> & a)
         cout << pre[r] - (l > 0 ? pre[l - 1] : 0) << nl;
     }
 }
-
-
-
 
 void two_D_prefix(int n, int m, int q, const vector<vector<int>> & a)
 {
@@ -140,4 +129,9 @@ vector<vector<int>> two_D_partial_sum(int n, int m, int q, vector<vector<int>> &
     }
 
     return a;
+}
+
+signed main()
+{
+    return 0;
 }
