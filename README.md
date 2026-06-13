@@ -34,6 +34,7 @@ This repository contains my daily-use templates in **C++** throughout my competi
 > - with additional template files to handle different datatypes
 * Semgent Tree
 * Segment Tree with Lazy Propagation
+* Iterative Segment Tree
 * Merge Sort Tree
 
 ### General
