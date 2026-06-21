@@ -36,6 +36,7 @@ This repository contains my daily-use templates in **C++** throughout my competi
 * Segment Tree with Lazy Propagation
 * Iterative Segment Tree
 * Merge Sort Tree
+* Sparse Table
 
 ### General
 
@@ -74,4 +75,3 @@ git clone <https://github.com/Mawadda0/CP-Templates.git>
 
 - These sessions were originally delivered in the **ICPC SCU Community**.  
 - Special thanks to the community for the support and for providing a great learning environment.
-
