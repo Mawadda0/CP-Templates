@@ -1,4 +1,4 @@
-# Competitive Programming 🏁
+# Competitive Programming Templates 🏁
 
 This repository contains my daily-use templates in **C++** throughout my competitive programming journey.
 
@@ -6,7 +6,7 @@ This repository contains my daily-use templates in **C++** throughout my competi
 
 ## 📂 Content
 
-### Math
+### *Number Theory*
 
 * Prime checking
 * Divisors
@@ -20,7 +20,7 @@ This repository contains my daily-use templates in **C++** throughout my competi
 * Combinatorics (combination and permutation)
 
 
-### Graph Theory
+### *Graph Theory*
 
 * BFS & DFS
 * DFS implementatin in details
@@ -30,7 +30,7 @@ This repository contains my daily-use templates in **C++** throughout my competi
 * Bellman
 * Kruksal
 
-### Range Query
+### *Range Queries*
 > - with additional template files to handle different datatypes
 * Semgent Tree
 * Segment Tree with Lazy Propagation
@@ -38,22 +38,12 @@ This repository contains my daily-use templates in **C++** throughout my competi
 * Merge Sort Tree
 * Sparse Table
 
-### General
+### *General*
 
-* Prefix & 2D Prefix & Partial & 2D Partial
+* Prefix & 2D Prefix & Partial & 2D Partial Sums
+* Merge Sort
+* Bits
 > - I will add more templates in the future
-
-
----
-
-## ⚡ Usage
-
-1. Clone the repository:
-
-```bash
-git clone <https://github.com/Mawadda0/CP-Templates.git>
-```
-2. Use the functions directly in your code.
 
 ---
 ## 📝 Notes
@@ -64,14 +54,33 @@ git clone <https://github.com/Mawadda0/CP-Templates.git>
 
 ---
 
-## 🎈 Competitive Programming Sessions 🎈
-#### this part of my repo will include my my personal materials for learning and improving in Competitive Programming.
+# Competitive Programming Sessions 🎈
 
-### **Topics**
-1. Math Basics (GCD, LCM, Prime Check), you can check on the session from [here](https://cisuezedu.sharepoint.com/:v:/s/ICPCSCUNewcommers26/IQCKWHDvPGMcTLfqy5vDDiMPAckLJH51zWS6LPg0vw7bS4E?e=WjKsmG)
-- For my presentation [here](https://docs.google.com/presentation/d/1x6QFtvcvHhaa6_7DcGT7hcQ66k12WN4KR6_xzvyPJgk/edit?usp=sharing)
-  
-### Acknowledgment
+Welcome to my Competitive Programming learning repository. This section contains my personal notes, presentations, and resources that I use to learn and improve my problem-solving skills.
 
-- These sessions were originally delivered in the **ICPC SCU Community**.  
-- Special thanks to the community for the support and for providing a great learning environment.
+## 📚 Topics
+
+### 1. Math Basics
+
+**Concepts Covered**
+
+* Factorial & Overflow
+* GCD (Greatest Common Divisor)
+* LCM (Least Common Multiple)
+* Prime Checking
+* Prime Factorization
+* Mod Operations
+* Base Convertion
+
+🔗 **Resources**
+
+* Session Recording: [Watch Here](https://cisuezedu.sharepoint.com/:v:/s/ICPCSCUNewcommers26/IQCKWHDvPGMcTLfqy5vDDiMPAckLJH51zWS6LPg0vw7bS4E?e=WjKsmG)
+* Presentation Slides: [View Here](https://docs.google.com/presentation/d/1x6QFtvcvHhaa6_7DcGT7hcQ66k12WN4KR6_xzvyPJgk/edit?usp=sharing)
+
+---
+
+## Acknowledgment
+
+These sessions were originally delivered within the **ICPC SCU Community**.
+
+I would like to thank the community for providing a supportive learning environment and helping students grow in Competitive Programming.
