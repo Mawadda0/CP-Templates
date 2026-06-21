@@ -21,22 +21,29 @@ const int MOD = 1e9 + 7;
 // segment tree for range queries
 struct Node
 {
-    int sum;
-
+    int mini;
+    int maxi;
+    int zero_cnt; // for query "find k-th zero"
     Node()
     {
-        sum = 0; // the initial value
+        mini = INF; // the initial value
+        maxi = -INF;
+        zero_cnt = 0;
     }
 
     Node(int x)
     {
-        sum = x;
+        mini = x;
+        maxi = x;
+        zero_cnt = (x == 0 ? 1 : 0);
     }
 
     void change(int x)
     {
-        //sum += x for adding
-        sum = x; //for updating
+        // mini += x for adding
+        mini = x; //for updating
+        maxi = x;
+        zero_cnt = (x == 0 ? 1 : 0);
     }
 };
 
@@ -58,6 +65,8 @@ struct segTree
     {
         Node res = Node();
         res.mini = min(lf.mini, ri.mini);
+        res.maxi = max(lf.maxi, ri.maxi);
+        res.zero_cnt = lf.zero_cnt + ri.zero_cnt;
         return res;
     }
 
@@ -109,11 +118,15 @@ struct segTree
         return merge(left, right);
     }
 
-    int get(int l, int r)
+    int get_min(int l, int r)
     {
         return getP(l, r, 0, 0, tree_size).mini;
     }
 
+    int get_max(int l, int r)
+    {
+        return getP(l, r, 0, 0, tree_size).maxi;
+    }
 
     void initP(vector<int> & a, int ni, int lx, int rx)
     {
@@ -137,6 +150,58 @@ struct segTree
     {
         initP(a, 0, 0, tree_size);
     }
+
+    int find_kth_zero_P(int k, int ni, int lx, int rx) // find k-th zero
+    {
+        if(segData[ni].zero_cnt < k) return -1;
+
+        if(rx - lx == 1)
+        {
+            return lx;
+        }
+
+        int mid = (lx + rx) / 2;
+        int left_zeros = segData[2 * ni + 1].zero_cnt;
+
+        if(k <= left_zeros)
+        {
+            return find_kth_zero_P(k, 2 * ni + 1, lx, mid);
+        }
+        else
+        {
+            return find_kth_zero_P(k - left_zeros, 2 * ni + 2, mid, rx);
+        }
+    }
+
+    int find_kth_zero(int k)
+    {
+        return find_kth_zero_P(k, 0, 0, tree_size);
+    }
+
+    int get_first_P(int l, int r, int x, int ni, int lx, int rx) // first element and comparing with x, first index and compering with x
+    {
+        if(lx >= r || rx <= l) return -1;
+
+        // if(segData[ni].maxi <= x) return -1; // if we want to search on first element/a[idx] greater than x
+        if(segData[ni].maxi < x) return -1; // if we want to search on first element/a[idx] greater or equal x
+        // if(segData[ni].mini >= x) return -1; // if we want to search on first element/a[idx] less than x
+        // if(segData[ni].mini > x) return -1; // if we want to search on first element/ a[idx] less or equal than x
+
+
+        if(rx - lx == 1) return lx;
+
+        int mid = (lx + rx) / 2;
+        int left = get_first_P(l, r, x, 2 * ni + 1, lx, mid);
+        if(left != -1) return left;
+        return get_first_P(l, r, x, 2 * ni + 2, mid, rx);
+    }
+
+    int get_first(int l, int r, int x)
+    {
+        return get_first_P(l, r, x, 0, 0, tree_size);
+    }
+
+
 };
 
 
