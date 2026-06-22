@@ -19,18 +19,6 @@ This repository contains my daily-use templates in **C++** throughout my competi
 * SPF (Smallest prime factor)
 * Combinatorics (combination and permutation)
 
-### *Graph Theory*
-
-* BFS & DFS
-* DFS implementatin in details
-* BFS implementatin in details
-* Dijkstra
-* Floyed
-* Bellman
-* Kruksal
-* Kth Ancestor
-* LCA
-
 ### *Range Queries*
 
 > - with additional template files to handle different datatypes
@@ -40,6 +28,25 @@ This repository contains my daily-use templates in **C++** throughout my competi
 * Iterative Segment Tree
 * Merge Sort Tree
 * Sparse Table
+
+
+### *Graph Theory*
+
+* BFS & DFS
+* DFS implementatin in details
+* BFS implementatin in details
+* Dijkstra
+* Floyed
+* Bellman
+* Kruksal
+
+
+### *Trees*
+
+* Kth Ancestor
+* LCA
+* Tree Diameter
+
 
 ### *General*
 
