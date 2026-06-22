@@ -29,6 +29,7 @@ This repository contains my daily-use templates in **C++** throughout my competi
 * Bellman
 * Kruksal
 * Kth Ancestor
+* LCA
 
 ### *Range Queries*
 
