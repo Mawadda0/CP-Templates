@@ -28,7 +28,7 @@ This repository contains my daily-use templates in **C++** throughout my competi
 * Iterative Segment Tree
 * Merge Sort Tree
 * Sparse Table
-
+* SQRT Decomposition
 
 ### *Graph Theory*
 
