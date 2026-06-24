@@ -20,7 +20,7 @@ const int INF = 2e18;
 class sparseTable
 {
 private:
-    const int N = 2e5 + 5, Log = 23;
+    int n, Log;
     vector<vector<int>> T;
     int skip = INF; // initial value
 
@@ -30,14 +30,12 @@ private:
     }
 
 public:
-    sparseTable()
-    {
-        T.assign(N, vector<int>(Log, 0));
-    }
 
     void build(vector<int> & a)
     {
-        int n = sz(a);
+        n = sz(a);
+        Log = 64 - __builtin_clzll(n);
+        T.assign(n, vector<int>(Log, 0));
         for(int i = 0; i < n; i++)
         {
             T[i][0] = a[i];
