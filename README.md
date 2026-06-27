@@ -24,11 +24,14 @@ This repository contains my daily-use templates in **C++** throughout my competi
 > - with additional template files to handle different datatypes
 
 * Semgent Tree
+> - 2D Segment Tree soon ..
 * Segment Tree with Lazy Propagation
 * Iterative Segment Tree
 * Merge Sort Tree
 * Sparse Table
 * SQRT Decomposition
+* Fenwick Tree
+* 2D Fenwick Tree
 
 ### *Graph Theory*
 
