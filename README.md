@@ -24,7 +24,7 @@ This repository contains my daily-use templates in **C++** throughout my competi
 > - with additional template files to handle different datatypes
 
 * Semgent Tree
-> - 2D Segment Tree soon ..
+* 2D Segment Tree
 * Segment Tree with Lazy Propagation
 * Iterative Segment Tree
 * Merge Sort Tree
@@ -43,13 +43,11 @@ This repository contains my daily-use templates in **C++** throughout my competi
 * Bellman
 * Kruksal
 
-
 ### *Trees*
 
 * Kth Ancestor
 * LCA
 * Tree Diameter
-
 
 ### *General*
 
