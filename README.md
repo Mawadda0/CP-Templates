@@ -32,6 +32,7 @@ This repository contains my daily-use templates in **C++** throughout my competi
 * SQRT Decomposition
 * Fenwick Tree
 * 2D Fenwick Tree
+* Mo Algorithm
 
 ### *Graph Theory*
 
