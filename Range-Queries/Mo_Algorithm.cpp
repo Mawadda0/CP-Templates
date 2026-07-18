@@ -70,7 +70,7 @@ void remove(int idx)
 void MO_process()
 {
     sort(qu, qu + q);
-    int l = 1, r = 0;
+    int l = 0, r = -1;
     for(int i = 0; i < q; i++)
     {
         while(l > qu[i].l) add(--l);
@@ -80,7 +80,9 @@ void MO_process()
         while(r > qu[i].r) remove(r--);
         ans[qu[i].q_idx] = res;
     }
+    while(r >= l) remove(r--); // to avoid reset vis array in main if problem contains test cases.
 }
+
 
 void solve()
 {
