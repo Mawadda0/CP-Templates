@@ -49,6 +49,8 @@ This repository contains my daily-use templates in **C++** throughout my competi
 * Kth Ancestor
 * LCA
 * Tree Diameter
+* Small To Large Merging 
+* DSU On Tree "Sack"
 
 ### *General*
 

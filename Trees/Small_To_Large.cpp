@@ -1,4 +1,4 @@
-// this code solve problem distinct colors on cses
+// this code solves problem distinct colors on cses
 // problem link : https://cses.fi/problemset/task/1139
 #include <bits/stdc++.h>
  
