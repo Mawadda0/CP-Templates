@@ -48,7 +48,7 @@ struct segTree
         Node res;
         res.v.resize(sz(lf.v) + sz(ri.v));
 
-        merge(all(lf.v), all(ri.v), res.v.begin());
+        std::merge(all(lf.v), all(ri.v), res.v.begin());
 
         return res;
     }
