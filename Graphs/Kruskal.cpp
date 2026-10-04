@@ -1,24 +1,4 @@
-#include <bits/stdc++.h>
-
-using namespace std;
-
-#define nl '\n'
-#define ll long long
-#define int long long
-#define sz(x) (int)(x.size())
-#define all(v) v.begin(), v.end()
-#define F first
-#define S second
-#define fixed(n) fixed << setprecision(n)
-#define min_count(x) order_of_key(x)
-#define num_in_pos(x) find_by_order(x)
-#define ull unsigned long long
-
-const double pi = 3.141592653589793;
-const long long INF = 1e18;
-const int MOD = 1e9 + 7;
-
-// "سُبْحَانَكَ لا عِلْمَ لَنَا إِلَّا مَا عَلَّمْتَنَا إِنَّكَ أَنْتَ الْعَلِيمُ الْحَكِيمُ"
+#include <Template.h>
 
 struct DSU
 {
@@ -93,10 +73,4 @@ void kruskal()
         if(dsu.unite(u, v)) mst += w;
     }
     cout << mst;
-}
-
-signed main()
-{
-    ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
-    return 0;
 }

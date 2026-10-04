@@ -1,23 +1,4 @@
-#include <bits/stdc++.h>
-
-using namespace std;
-
-#define nl '\n'
-#define ll long long
-#define int long long
-#define sz(x) (int)(x.size())
-#define all(v) v.begin(), v.end()
-#define F first
-#define S second
-#define fixed(n) fixed << setprecision(n)
-#define ull unsigned long long
-#define ld long double
-
-const double pi = 3.141592653589793;
-const long long INF = 2e18;
-const int MOD = 1e9 + 7;
-
-// سُبْحَانَكَ لا عِلْمَ لَنَا إِلَّا مَا عَلَّمْتَنَا إِنَّكَ أَنْتَ الْعَلِيمُ الْحَكِيمُ
+#include <Template.h>
 
 // finweck and 2d finweck are sutable for inverse operations (sum, xor, product)
 // all comments with "changes here" if we need to use template with any operation instead of summation
@@ -117,9 +98,3 @@ public:
     }
     // benefits that we are calculating the lower and upper within O(log n) instead of using Binary search with regular prefix with O(log^ n)
 };
-
-signed main()
-{
-    ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
-    return 0;
-}
