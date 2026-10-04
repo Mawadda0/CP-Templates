@@ -6,23 +6,9 @@ This repository contains my daily-use templates in **C++** throughout my competi
 
 ## 📂 Content
 
-### *Number Theory*
-
-* Prime checking
-* Divisors
-* GCD & LCM
-* Sieve
-* Mod inverse
-* Prime factors
-* Factorial with mod
-* Fast power & Mod power
-* SPF (Smallest prime factor)
-* Combinatorics (combination and permutation)
-
 ### *Range Queries*
 
-> - with additional template files to handle different datatypes
-
+* Prefix & 2D Prefix & Partial & 2D Partial Sums
 * Semgent Tree
 * 2D Segment Tree
 * Segment Tree with Lazy Propagation
@@ -49,14 +35,38 @@ This repository contains my daily-use templates in **C++** throughout my competi
 * Kth Ancestor
 * LCA
 * Tree Diameter
-* Small To Large Merging 
+* Small To Large Merging
 * DSU On Tree "Sack"
 
-### *General*
+### *Number Theory*
 
-* Prefix & 2D Prefix & Partial & 2D Partial Sums
-* Merge Sort
+* Prime checking
+* Divisors
+* GCD & LCM
+* Sieve
+* Mod inverse
+* Prime factors
+* Factorial with mod
+* Fast power & Mod power
+* SPF (Smallest prime factor)
+* Combinatorics (combination and permutation)
+
+### *Strings*
+
+* Single Hashing
+* Double Hashing
+
+### *Misc*
+
 * Bits
+
+### *Sorting Algorithms*
+
+* Bubble Sort
+* Insertion Sort
+* Selection Sort
+* Quick Sort
+* Merge Sort
 
 > - I will add more templates in the future
 
