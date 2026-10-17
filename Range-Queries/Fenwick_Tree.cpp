@@ -4,7 +4,7 @@
 // all comments with "changes here" if we need to use template with any operation instead of summation
 class FenwickTree {
 private:
-    vector<int> bit;  // binary indexed tree
+    vector<int> bit;
     int n;
 
 public:
@@ -32,6 +32,14 @@ public:
         }
     }
 
+    void add_range(int l, int r, int x)
+    {
+        if (l > r) return;
+        add(l, x);
+        add(r + 1, -x);
+    }
+
+
     int sum_query(int r) // prefix sum from 0 to r
     {
         int ret = 0;
@@ -56,6 +64,11 @@ public:
         int curr = sum_query(idx, idx);
         int delta = x - curr;
         add(idx, delta);
+    }
+
+    int get_point(int idx)
+    {
+        return sum_query(idx);
     }
 
     // lower & upper bound using binary lifting
@@ -96,5 +109,5 @@ public:
         }
         return idx + 1;
     }
-    // benefits that we are calculating the lower and upper within O(log n) instead of using Binary search with regular prefix with O(log^ n)
 };
+ // benefits that we are calculating the lower and upper within O(log n) instead of using Binary search with regular prefix with O(log^ n)
