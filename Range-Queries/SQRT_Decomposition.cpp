@@ -1,57 +1,87 @@
 #include <Template.h>
 
-class SqrtDecomposition {
+class SqrtDecomposition
+{
 private:
-    int n;
-    int SQ;
-    vector<int> blk;
-    vector<vector<int>> b;
-    vector<int> a;
+    int n, SQ, blocks;
+    vector<int> blk, lazy, a;
 
     void process()
     {
         for(int i = 0; i < n; i++)
         {
-            b[i / SQ].push_back(a[i]);
-            blk[i / SQ] += a[i]; // change here : summation
+            blk[i / SQ] += a[i];
         }
     }
 
 public:
-    SqrtDecomposition(int n, const vector<int> & a)
+    SqrtDecomposition(int n, const vector<int>& a)
     {
         this->n = n;
-        this->SQ = sqrt(n) + 1;
         this->a = a;
-        blk.assign(SQ, 0);
-        b.resize(SQ);
+
+        SQ = sqrt(n) + 1;
+        blocks = (n + SQ - 1) / SQ;
+
+        blk.assign(blocks, 0);
+        lazy.assign(blocks, 0);
+
         process();
     }
 
-    void update(int idx, int x)
+    // Range Add [l, r] += x
+    void update(int l, int r, int x)
     {
-        blk[idx / SQ] -= a[idx]; // change here : summation
-        blk[idx / SQ] += x; // change here : summation 
-        b[idx / SQ][idx % SQ] = x;
-        a[idx] = x;
-    }
-
-    int query(int l, int r)
-    {
-        int res = 0;
         while(l <= r)
         {
-            if (l % SQ == 0 && l + SQ <= r)
+            int id = l / SQ;
+            int start = id * SQ;
+            int en = min(n - 1, start + SQ - 1);
+
+            if(l == start && en <= r)
             {
-                res += blk[l / SQ]; // change here : summation
-                l += SQ;
+                lazy[id] += x;
+                blk[id] += x * (en - start + 1);
+                l = en + 1;
             }
             else
             {
-                res += a[l]; // change here : summation
+                a[l] += x;
+                blk[id] += x;
                 l++;
             }
         }
+    }
+
+    // Range Sum Query [l, r]
+    int query(int l, int r)
+    {
+        int res = 0;
+
+        while(l <= r)
+        {
+            int id = l / SQ;
+            int start = id * SQ;
+            int en = min(n - 1, start + SQ - 1);
+
+            if(l == start && en <= r)
+            {
+                res += blk[id];
+                l = en + 1;
+            }
+            else
+            {
+                res += a[l] + lazy[id];
+                l++;
+            }
+        }
+
         return res;
+    }
+
+    // Point Query
+    int get(int idx)
+    {
+        return a[idx] + lazy[idx / SQ];
     }
 };
